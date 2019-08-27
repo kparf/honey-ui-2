@@ -1,0 +1,12 @@
+{
+  "name": "honey-ui-2",
+  "version": "1.0.0",
+  "description": "UI for Honey project",
+  "main": "index.js",
+  "repository": "https://github.com/kparf/honey-ui-2.git",
+  "author": "Kiryl Parfiankou <Kiryl.Parfiankou.Dev@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "rollup": "^1.20.2"
+  }
+}
