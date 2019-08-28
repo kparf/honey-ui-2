@@ -1,0 +1,24 @@
+.Navigation__list {
+  display: flex;
+  width: var(--page-width);
+  list-style: none;
+  justify-content: center;
+  align-items: center;
+  padding: 0;
+  margin-top: 30px; 
+}
+
+.Navigation__list-item {
+  color: var(--app-main-color);
+  text-decoration: none;
+  margin: 10px;
+  font-size: 1.5em;
+  padding: 5px 20px;
+  text-transform: uppercase;
+  border: 3px solid transparent;
+}
+
+.Navigation__list-item:hover {
+  border-color: var(--decoration-color);
+  transition: border-color .5s;
+}

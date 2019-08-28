@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Honey</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- If you need CSP, this is how you can configure it to work with the dynamic import polyfill -->
+  <!-- <meta http-equiv="Content-Security-Policy" content="script-src 'self' blob:"> -->
+
+  {% for module in modulepreload.main %}
+    {% if browserSupportsModulePreload -%}
+      <link rel="modulepreload" href="{{ module }}"/>
+    {%- else -%}
+      <link rel="preload" as="script" crossorigin="anonymous" href="{{ module }}"/>
+    {%- endif %}
+  {%- endfor %}
+</head>
+<body>
+  <main>
+    <section id="app">
+      <noscript>
+        <marquee>This project requires JavaScript to be enabled</marquee>
+      </noscript>
+    </section>
+  </main>
+
+  <script type="module" src="{{ manifest.main }}"></script>
+  {% if ENV == 'production' %}
+    <script nomodule src="{{ manifest.nomodule }}"></script>
+  {% endif %}
+</body>
+</html>

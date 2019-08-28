@@ -1,0 +1,46 @@
+.Header {
+  --icon-height: 50px;
+
+  display: flex;
+  flex-direction: column;  
+  justify-content: center;
+  align-items: center;
+
+  padding: 10px;
+  font-weight: bold;
+  background-color: var(--accent-color);
+  color: var(--app-main-color);
+}
+
+.phones-container  {
+  display: flex;
+  align-items: center;
+}
+
+.address-container {
+  display: flex;
+  align-items: center;
+  margin-left: 30px;
+}
+
+.Header__icon {
+  height: var(--icon-height);
+  margin-right: 10px;
+}
+
+.Header .information-container {
+  display: flex;
+  align-items: center;
+}
+
+.Header__container {
+  display: flex;
+  width: var(--page-width);
+  align-items: center;
+  justify-content: space-between;
+}
+
+.Header__list {
+  display: flex;
+  flex-direction: column;
+}
