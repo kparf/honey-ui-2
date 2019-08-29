@@ -15,6 +15,7 @@
     "eslint:recommended", "google"
   ],
   "rules": {
+    "camelcase": "off",
     "max-len": ["error", { "code": 130 }],
     "no-console": 0,
     "require-jsdoc": 0,

@@ -1,0 +1,4 @@
+.Header__icon {
+  height: var(--icon-height);
+  margin-right: 10px;
+}

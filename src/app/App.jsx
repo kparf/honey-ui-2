@@ -1,12 +1,12 @@
 import React from 'react';
 import Header from 'common/components/Header/Header.jsx';
 
-import 'app/App.css';
+import style from 'app/App.css';
 
 
 export const App = () => {
   return (
-    <div className="App">
+    <div className={style['App']}>
       <Header></Header>
     </div>
   );

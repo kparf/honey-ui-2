@@ -17,13 +17,11 @@
   {%- endfor %}
 </head>
 <body>
-  <main>
-    <section id="app">
-      <noscript>
-        <marquee>This project requires JavaScript to be enabled</marquee>
-      </noscript>
-    </section>
-  </main>
+  <div id="app">
+    <noscript>
+      <marquee>This project requires JavaScript to be enabled</marquee>
+    </noscript>
+  </div>
 
   <script type="module" src="{{ manifest.main }}"></script>
   {% if ENV == 'production' %}

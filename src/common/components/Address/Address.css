@@ -1,0 +1,10 @@
+.Address {
+  display: flex;
+  align-items: center;
+  margin-left: 30px;
+}
+
+.Address__list {
+  display: flex;
+  flex-direction: column;
+}

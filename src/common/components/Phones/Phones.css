@@ -1,0 +1,9 @@
+.Phones  {
+  display: flex;
+  align-items: center;
+}
+
+.Phones__list {
+  display: flex;
+  flex-direction: column;
+}

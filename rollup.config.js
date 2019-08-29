@@ -8,7 +8,6 @@ import {terser} from 'rollup-plugin-terser';
 import includePaths from 'rollup-plugin-includepaths';
 import imagemin from 'rollup-plugin-imagemin';
 import image from 'rollup-plugin-image';
-import url from 'postcss-url';
 import pkg from './package.json';
 
 
@@ -94,7 +93,7 @@ function basePlugins({nomodule = false} = {}) {
       }]],
       plugins: [['@babel/plugin-transform-react-jsx']],
     }),
-    postcss({use: url()}),
+    postcss({modules: true}),
     replace({'process.env.NODE_ENV': JSON.stringify('production')}),
     manifestPlugin(),
   ];
