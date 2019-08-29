@@ -1,4 +1,5 @@
 import React from 'react';
+import {Link} from 'react-router-dom';
 
 import style from 'common/components/Navigation/Navigation.css';
 
@@ -6,10 +7,10 @@ const Navigation = () => {
   return (
     <nav>
       <ul className={style['Navigation__list']}>
-        <li><a className={style['Navigation__list-item']} href="/">Главная</a></li>
-        <li><a className={style['Navigation__list-item']} href="/products.html">Продукция</a></li>
-        <li><a className={style['Navigation__list-item']} href="/about.html">О Нас</a></li>
-        <li><a className={style['Navigation__list-item']} href="/contacts.html">Контакты</a></li>
+        <li><Link className={style['Navigation__list-item']} to="/">Главная</Link></li>
+        <li><Link className={style['Navigation__list-item']} to="/products">Продукция</Link></li>
+        <li><Link className={style['Navigation__list-item']} to="/about">О Нас</Link></li>
+        <li><Link className={style['Navigation__list-item']} to="/contacts">Контакты</Link></li>
       </ul>
     </nav>
   );

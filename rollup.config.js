@@ -83,7 +83,16 @@ function basePlugins({nomodule = false} = {}) {
     imagemin(),
     image(),
     nodeResolve(),
-    commonjs(),
+    commonjs({
+      include: [
+        'node_modules/**',
+      ],
+      namedExports: {
+        'node_modules/react/index.js': ['Children', 'Component', 'PropTypes', 'createElement'],
+        'node_modules/react-dom/index.js': ['render'],
+        'node_modules/react-is/index.js': ['isValidElementType'],
+      },
+    }),
     babel({
       exclude: /node_modules/,
       presets: [['@babel/preset-env', {
@@ -141,13 +150,6 @@ const moduleConfig = {
       // Usually this is the package, but it could also be the scope.
       const directories = id.split(path.sep);
       const name = directories[directories.lastIndexOf('node_modules') + 1];
-
-      // Group react dependencies into a common "react" chunk.
-      // NOTE: This isn't strictly necessary for this app, but it's include
-      // to show how it's done.
-      if (name.match(/^react/) || ['prop-types', 'scheduler'].includes(name)) {
-        return 'react';
-      }
 
       // Group `tslib` and `dynamic-import-polyfill` into the default bundle.
       // NOTE: This isn't strictly necessary for this app, but it's include
