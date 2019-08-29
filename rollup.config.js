@@ -8,6 +8,7 @@ import {terser} from 'rollup-plugin-terser';
 import includePaths from 'rollup-plugin-includepaths';
 import imagemin from 'rollup-plugin-imagemin';
 import image from 'rollup-plugin-image';
+import postcssUrl from 'postcss-url';
 import pkg from './package.json';
 
 
@@ -93,7 +94,19 @@ function basePlugins({nomodule = false} = {}) {
       }]],
       plugins: [['@babel/plugin-transform-react-jsx']],
     }),
-    postcss({modules: true}),
+    postcss({modules: true, plugins: [
+      postcssUrl({
+        url: 'copy',
+        basePath: path.join(__dirname, 'src'),
+        useHash: true,
+        assetsPath: pkg.config.publicDir,
+      }),
+      postcssUrl({
+        url(asset) {
+          return path.basename(asset.absolutePath);
+        },
+      }),
+    ]}),
     replace({'process.env.NODE_ENV': JSON.stringify('production')}),
     manifestPlugin(),
   ];
